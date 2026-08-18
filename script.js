@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       const response = await fetch("./data.json");
       productsData = await response.json();
-      renderProducts();
+      updateUI();
     } catch (error) {
       console.error("Error loading products:", error);
     }
@@ -115,6 +115,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // Render Sidebar Cart UI
   function renderCart() {
     const sidebar = document.querySelector(".sidebar");
+    if (!sidebar) return;
+
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
     const orderTotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
@@ -122,7 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
       sidebar.innerHTML = `
         <h4>Your Cart (0)</h4>
         <img src="assets/images/illustration-empty-cart.svg" alt="Empty Cart illustration" class="empty-cart-img">
-        <b class="empty-cart-text">Your added items will appear here</b>
+        <p class="empty-cart-text">Your added items will appear here</p>
       `;
       return;
     }
@@ -209,10 +211,12 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
 
     document.body.insertAdjacentHTML("beforeend", modalHTML);
+    document.body.style.overflow = "hidden"; // Prevent background scrolling
 
     document.getElementById("start-new-order").addEventListener("click", () => {
       cart = [];
       document.getElementById("modal-overlay").remove();
+      document.body.style.overflow = "auto";
       updateUI();
     });
   }
