@@ -1,22 +1,22 @@
 @font-face {
-  font-family: 'RedHatText-Italic';
-  src: url('assets/fonts/RedHatText-Italic-VariableFont_wght.ttf');
+  font-family: MyCustomFont;
+  src: url(assets/fonts/RedHatText-Italic-VariableFont_wght.ttf);
 }
 @font-face {
-  font-family: 'RedHatText-Variable';
-  src: url('assets/fonts/RedHatText-VariableFont_wght.ttf');
+  font-family: MyCustomFont1;
+  src: url(assets/fonts/RedHatText-VariableFont_wght.ttf);
 }
 @font-face {
-  font-family: 'RedHatText-Bold';
-  src: url('assets/fonts/static/RedHatText-Bold.ttf');
+  font-family: MyCustomFont2;
+  src: url(assets/fonts/static/RedHatText-Bold.ttf);
 }
 @font-face {
-  font-family: 'RedHatText-Regular';
-  src: url('assets/fonts/static/RedHatText-Regular.ttf');
+  font-family: MyCustomFont3;
+  src: url(assets/fonts/static/RedHatText-Regular.ttf);
 }
 @font-face {
-  font-family: 'RedHatText-SemiBold';
-  src: url('assets/fonts/static/RedHatText-SemiBold.ttf');
+  font-family: MyCustomFont4;
+  src: url(assets/fonts/static/RedHatText-SemiBold.ttf);
 }
 
 * {
@@ -28,7 +28,7 @@
 body {
   background-color: #fcf8f5;
   padding: 24px 16px;
-  font-family: 'RedHatText-Regular', sans-serif;
+  font-family: MyCustomFont3, sans-serif;
   color: hsl(14, 65%, 9%);
   min-height: 100vh;
 }
@@ -38,11 +38,12 @@ body {
 }
 
 .Dessert h3 {
-  font-family: 'RedHatText-Bold', sans-serif;
+  font-family: MyCustomFont2, sans-serif;
   font-size: 2.5rem;
   font-weight: 700;
 }
 
+/* Layout Container */
 .Product-card {
   max-width: 1215px;
   margin: 0 auto;
@@ -52,7 +53,7 @@ body {
 }
 
 .main-content {
-  flex: 1;
+  width: 100%;
 }
 
 /* Product Grid */
@@ -82,7 +83,7 @@ body {
   border-color: #c53b11;
 }
 
-/* Button & Active Quantity Control Container */
+/* Add to Cart & Active Quantity Control Container */
 .button-container {
   display: flex;
   justify-content: center;
@@ -102,7 +103,7 @@ body {
   border: 1px solid hsl(12, 20%, 44%);
   padding: 10px 24px;
   background: white;
-  font-family: 'RedHatText-SemiBold', sans-serif;
+  font-family: MyCustomFont4, sans-serif;
   font-weight: 600;
   font-size: 0.875rem;
   color: hsl(14, 65%, 9%);
@@ -136,8 +137,8 @@ body {
   background: transparent;
   border: 1px solid white;
   border-radius: 50%;
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -154,21 +155,21 @@ body {
 }
 
 .quantity-value {
-  font-family: 'RedHatText-SemiBold', sans-serif;
+  font-family: MyCustomFont4;
   font-weight: 600;
   font-size: 0.875rem;
 }
 
 /* Typography */
 .category {
-  font-family: 'RedHatText-Regular', sans-serif;
+  font-family: MyCustomFont3;
   font-size: 0.875rem;
   color: hsl(12, 20%, 44%);
 }
 
 h5 {
-  font-family: 'RedHatText-SemiBold', sans-serif;
-  color: hsl(14, 65%, 9%);
+  font-family: MyCustomFont4;
+  color: black;
   font-size: 1rem;
   margin: 4px 0;
 }
@@ -191,10 +192,10 @@ h5 {
 
 .sidebar h4 {
   color: #c53b11;
-  font-family: 'RedHatText-Bold', sans-serif;
+  font-family: MyCustomFont4;
   font-size: 1.5rem;
   font-weight: 700;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
 }
 
 .empty-cart-img {
@@ -208,7 +209,6 @@ h5 {
   font-size: 0.875rem;
   font-weight: 600;
   text-align: center;
-  margin-bottom: 8px;
 }
 
 /* Sidebar Dynamic Items */
@@ -221,10 +221,9 @@ h5 {
 }
 
 .cart-item-title {
-  font-family: 'RedHatText-SemiBold', sans-serif;
+  font-family: MyCustomFont4;
   font-weight: 600;
   margin-bottom: 6px;
-  color: hsl(14, 65%, 9%);
 }
 
 .cart-item-pricing span {
@@ -260,11 +259,11 @@ h5 {
 }
 
 .remove-item-btn:hover {
-  border-color: hsl(14, 65%, 9%);
+  border-color: black;
 }
 
 .remove-item-btn:hover svg path {
-  fill: hsl(14, 65%, 9%);
+  fill: black;
 }
 
 .order-total-container {
@@ -272,14 +271,11 @@ h5 {
   justify-content: space-between;
   align-items: center;
   margin: 24px 0;
-  font-size: 0.875rem;
-  color: hsl(14, 65%, 9%);
 }
 
 .order-total-price {
   font-size: 1.5rem;
   font-weight: 700;
-  color: hsl(14, 65%, 9%);
 }
 
 .carbon-neutral-notice {
@@ -301,7 +297,7 @@ h5 {
   width: 100%;
   padding: 16px;
   border-radius: 999px;
-  font-family: 'RedHatText-SemiBold', sans-serif;
+  font-family: MyCustomFont4;
   font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
@@ -342,16 +338,14 @@ h5 {
 }
 
 .modal-content h2 {
-  font-family: 'RedHatText-Bold', sans-serif;
+  font-family: MyCustomFont2;
   font-size: 2rem;
   margin-bottom: 8px;
-  line-height: 1.1;
 }
 
 .modal-subtitle {
   color: hsl(12, 20%, 44%);
   margin-bottom: 24px;
-  font-size: 0.875rem;
 }
 
 .modal-summary-box {
@@ -373,7 +367,6 @@ h5 {
   width: 48px;
   height: 48px;
   border-radius: 4px;
-  object-fit: cover;
 }
 
 .modal-item-info {
@@ -383,25 +376,20 @@ h5 {
 .modal-item-name {
   font-weight: 600;
   font-size: 0.875rem;
-  color: hsl(14, 65%, 9%);
-  margin-bottom: 4px;
 }
 
 .modal-qty {
   color: #c53b11;
   font-weight: 700;
   margin-right: 8px;
-  font-size: 0.875rem;
 }
 
 .modal-unit {
   color: hsl(12, 20%, 44%);
-  font-size: 0.875rem;
 }
 
 .modal-item-price {
   font-weight: 600;
-  color: hsl(14, 65%, 9%);
 }
 
 .modal-total-row {
@@ -409,16 +397,14 @@ h5 {
   justify-content: space-between;
   align-items: center;
   padding: 16px 0;
-  font-size: 0.875rem;
 }
 
 .modal-total-price {
   font-size: 1.5rem;
   font-weight: 700;
-  color: hsl(14, 65%, 9%);
 }
 
-/* Responsive Layout */
+/* Tablet Media Query (2 columns for products) */
 @media (min-width: 768px) {
   .Product-list {
     grid-template-columns: repeat(2, 1fr);
@@ -435,6 +421,7 @@ h5 {
   }
 }
 
+/* Laptop & Desktop Screen Media Query (Side-by-Side Layout) */
 @media (min-width: 1024px) {
   body {
     padding: 40px 80px;
@@ -442,13 +429,13 @@ h5 {
 
   .Product-card {
     display: flex;
-    flex-direction: row; /* Aligns main content and sidebar side-by-side */
+    flex-direction: row;
     align-items: flex-start;
     gap: 32px;
   }
 
   .main-content {
-    flex: 1; /* Allows product list section to fill remaining width */
+    flex: 1;
   }
 
   .Product-list {
@@ -459,7 +446,6 @@ h5 {
     width: 384px;
     position: sticky;
     top: 40px;
-    flex-shrink: 0; /* Prevents sidebar from shrinking below 384px */
+    flex-shrink: 0;
   }
-}
-}
+  }
