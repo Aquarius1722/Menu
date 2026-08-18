@@ -441,8 +441,14 @@ h5 {
   }
 
   .Product-card {
-    flex-direction: row;
+    display: flex;
+    flex-direction: row; /* Aligns main content and sidebar side-by-side */
     align-items: flex-start;
+    gap: 32px;
+  }
+
+  .main-content {
+    flex: 1; /* Allows product list section to fill remaining width */
   }
 
   .Product-list {
@@ -453,5 +459,7 @@ h5 {
     width: 384px;
     position: sticky;
     top: 40px;
+    flex-shrink: 0; /* Prevents sidebar from shrinking below 384px */
   }
+}
 }
