@@ -436,8 +436,6 @@ body {
     padding: 2.5rem;
   }
 }
-
-/* Desktop Side-by-Side Layout (64em = 1024px) */
 @media (min-width: 64em) {
   body {
     padding: 2.5rem 5rem;
