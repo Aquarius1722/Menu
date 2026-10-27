@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+Document.addEventListener("DOMContentLoaded", () => {
   let productsData = [];
   let cart = [];
 
@@ -88,17 +88,16 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function addToCart(product) {
-  const existingItem = cart.find((item) => item.name === product.name);
-  
-  if (existingItem) {
-    existingItem.quantity += 1;
-  } else {
-    cart.push({ ...product, quantity: 1 });
+    const existingItem = cart.find((item) => item.name === product.name);
+    
+    if (existingItem) {
+      existingItem.quantity += 1;
+    } else {
+      cart.push({ ...product, quantity: 1 });
+    }
+    
+    updateUI();
   }
-  
-  updateUI();
-  }
-  
 
   function updateQuantity(productName, change) {
     const item = cart.find((i) => i.name === productName);
@@ -173,7 +172,10 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
-    document.querySelector(".confirm-order-btn")?.addEventListener("click", showConfirmationModal);
+    const confirmBtn = sidebar.querySelector(".confirm-order-btn");
+    if (confirmBtn) {
+      confirmBtn.addEventListener("click", showConfirmationModal);
+    }
   }
 
   function showConfirmationModal() {
