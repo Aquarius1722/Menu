@@ -88,9 +88,17 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function addToCart(product) {
+  const existingItem = cart.find((item) => item.name === product.name);
+  
+  if (existingItem) {
+    existingItem.quantity += 1;
+  } else {
     cart.push({ ...product, quantity: 1 });
-    updateUI();
   }
+  
+  updateUI();
+  }
+  
 
   function updateQuantity(productName, change) {
     const item = cart.find((i) => i.name === productName);
