@@ -1,4 +1,4 @@
-Document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
   let productsData = [];
   let cart = [];
 
@@ -196,9 +196,7 @@ Document.addEventListener("DOMContentLoaded", () => {
                 <img src="${item.image.thumbnail}" alt="" class="modal-thumb" aria-hidden="true">
                 <div class="modal-item-info">
                   <p class="modal-item-name">${item.name}</p>
-                  <p><span class="modal-qty">${item.quantity}x</span> <span class="modal-unit">@ $${item.price.toFixed(2)}</span></p>
-                </div>
-                <span class="modal-item-price">$${(item.price * item.quantity).toFixed(2)}</span>
+                  <p><span class="modal-qty">${item.quantity}x</span> <span class="modal-unit">@ $${item.price.toFixed(2)}</span></p> </div> <span class="modal-item-price">$${(item.price * item.quantity).toFixed(2)}</span>
               </div>
             `
               )
@@ -232,3 +230,4 @@ Document.addEventListener("DOMContentLoaded", () => {
 
   loadProducts();
 });
+                  
