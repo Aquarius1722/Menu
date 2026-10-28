@@ -67,27 +67,21 @@ document.addEventListener("DOMContentLoaded", () => {
   function attachProductListeners() {
     document.querySelectorAll(".add-to-cart").forEach((button) => {
       button.addEventListener("click", (e) => {
-        const targetBtn = e.target.closest(".add-to-cart");
-        if (!targetBtn) return;
-        const index = targetBtn.dataset.index;
+        const index = e.currentTarget.dataset.index;
         addToCart(productsData[index]);
       });
     });
 
     document.querySelectorAll(".btn-increment").forEach((button) => {
       button.addEventListener("click", (e) => {
-        const targetBtn = e.target.closest("button");
-        if (!targetBtn) return;
-        const index = targetBtn.dataset.index;
+        const index = e.currentTarget.dataset.index;
         updateQuantity(productsData[index].name, 1);
       });
     });
 
     document.querySelectorAll(".btn-decrement").forEach((button) => {
       button.addEventListener("click", (e) => {
-        const targetBtn = e.target.closest("button");
-        if (!targetBtn) return;
-        const index = targetBtn.dataset.index;
+        const index = e.currentTarget.dataset.index;
         updateQuantity(productsData[index].name, -1);
       });
     });
@@ -238,3 +232,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
   loadProducts();
 });
+      
