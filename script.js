@@ -67,21 +67,27 @@ document.addEventListener("DOMContentLoaded", () => {
   function attachProductListeners() {
     document.querySelectorAll(".add-to-cart").forEach((button) => {
       button.addEventListener("click", (e) => {
-        const index = e.currentTarget.dataset.index;
+        const targetBtn = e.target.closest(".add-to-cart");
+        if (!targetBtn) return;
+        const index = targetBtn.dataset.index;
         addToCart(productsData[index]);
       });
     });
 
     document.querySelectorAll(".btn-increment").forEach((button) => {
       button.addEventListener("click", (e) => {
-        const index = e.currentTarget.dataset.index;
+        const targetBtn = e.target.closest("button");
+        if (!targetBtn) return;
+        const index = targetBtn.dataset.index;
         updateQuantity(productsData[index].name, 1);
       });
     });
 
     document.querySelectorAll(".btn-decrement").forEach((button) => {
       button.addEventListener("click", (e) => {
-        const index = e.currentTarget.dataset.index;
+        const targetBtn = e.target.closest("button");
+        if (!targetBtn) return;
+        const index = targetBtn.dataset.index;
         updateQuantity(productsData[index].name, -1);
       });
     });
@@ -196,7 +202,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 <img src="${item.image.thumbnail}" alt="" class="modal-thumb" aria-hidden="true">
                 <div class="modal-item-info">
                   <p class="modal-item-name">${item.name}</p>
-                  <p><span class="modal-qty">${item.quantity}x</span> <span class="modal-unit">@ $${item.price.toFixed(2)}</span></p> </div> <span class="modal-item-price">$${(item.price * item.quantity).toFixed(2)}</span>
+                  <p><span class="modal-qty">${item.quantity}x</span> <span class="modal-unit">@ $${item.price.toFixed(2)}</span></p>
+                </div>
+                <span class="modal-item-price">$${(item.price * item.quantity).toFixed(2)}</span>
               </div>
             `
               )
@@ -230,4 +238,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
   loadProducts();
 });
-                  
