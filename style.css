@@ -316,16 +316,16 @@ body {
 
 /* Modal Window */
 .modal-overlay {
-  position: fixed; /* Fixed viewport positioning */
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%; /* Full screen height coverage */
+  min-height: 100%;
   background: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  z-index: 1000; /* Fixed c-index typo */
+  z-index: 1000;
 }
 
 .modal-content {
@@ -436,7 +436,6 @@ body {
     padding: 2.5rem;
   }
 }
-
 @media (min-width: 64em) {
   body {
     padding: 2.5rem 5rem;
@@ -464,4 +463,4 @@ body {
     flex-shrink: 0;
   }
   }
-    
+
