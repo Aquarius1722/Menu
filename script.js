@@ -1,4 +1,4 @@
-Document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
   let productsData = [];
   let cart = [];
 
@@ -88,7 +88,14 @@ Document.addEventListener("DOMContentLoaded", () => {
   }
 
   function addToCart(product) {
-    cart.push({ ...product, quantity: 1 });
+    const existingItem = cart.find((item) => item.name === product.name);
+    
+    if (existingItem) {
+      existingItem.quantity += 1;
+    } else {
+      cart.push({ ...product, quantity: 1 });
+    }
+    
     updateUI();
   }
 
@@ -158,14 +165,18 @@ Document.addEventListener("DOMContentLoaded", () => {
       <button type="button" class="confirm-order-btn">Confirm Order</button>
     `;
 
-    document.querySelectorAll(".remove-item-btn").forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-        const name = e.currentTarget.dataset.name;
-        removeFromCart(name);
-      });
-    });
+    // Use event delegation on the sidebar container to reliably catch clicks
+    sidebar.onclick = (e) => {
+      const removeBtn = e.target.closest(".remove-item-btn");
+      if (removeBtn) {
+        removeFromCart(removeBtn.dataset.name);
+      }
 
-    document.querySelector(".confirm-order-btn")?.addEventListener("click", showConfirmationModal);
+      const confirmBtn = e.target.closest(".confirm-order-btn");
+      if (confirmBtn) {
+        showConfirmationModal();
+      }
+    };
   }
 
   function showConfirmationModal() {
